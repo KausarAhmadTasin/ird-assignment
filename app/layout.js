@@ -11,20 +11,22 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="bg-gray-200 ">
-        <div className="flex">
-          <NavAside />
-          <div className="mt-3">
-            <NavTop />
-            <div className="flex justify-between">
-              {" "}
-              {children}
-              <Settings />
+    <>
+      <html lang="en">
+        <body className="bg-gray-200 ">
+          <div className="flex">
+            <NavAside />
+            <div className="mt-2">
+              <NavTop />
+              <div className="flex justify-between">
+                {" "}
+                {children}
+                <Settings />
+              </div>
             </div>
           </div>
-        </div>
-      </body>
-    </html>
+        </body>
+      </html>
+    </>
   );
 }
