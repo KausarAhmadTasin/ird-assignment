@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function Catagories({
   categories,
@@ -7,8 +8,11 @@ export default function Catagories({
   filteredSubCat,
   isCategoryOpen,
   getFilteredSubCat,
+  filteredDua,
+  getFilteredDuaByName,
 }) {
-  console.log(filteredSubCat);
+  const [openSubCatId, setOpenSubCatId] = useState(null);
+
   return (
     <div className="bg-white w-80 ml-3 pt-0 rounded-2xl overflow-auto h-[35.5rem]">
       <p className="bg-[#1FA45B] text-white text-center font-semibold p-3 text-m rounded-t-lg sticky top-0 w-76 z-10">
@@ -50,11 +54,39 @@ export default function Catagories({
                 <ul className="green-list">
                   {filteredSubCat.map((singleSubCat) => (
                     <li
-                      onClick={() => getFilteredSubCat(singleSubCat.subcat_id)}
-                      className="text-[#373737] py-2 text-base green-dot cursor-pointer"
+                      className="text-[#373737] py-2 text-base green-dot "
                       key={singleSubCat.id}
                     >
-                      {singleSubCat.subcat_name_en}
+                      <div
+                        className="cursor-pointer"
+                        onClick={() => {
+                          if (openSubCatId === singleSubCat.subcat_id) {
+                            setOpenSubCatId(null);
+                          } else {
+                            setOpenSubCatId(singleSubCat.subcat_id);
+                          }
+                          getFilteredSubCat(singleSubCat.subcat_id);
+                        }}
+                      >
+                        {singleSubCat.subcat_name_en}
+                      </div>
+                      {/* Dua name under sub categoris */}
+                      {openSubCatId === singleSubCat.subcat_id && (
+                        <ul className="pt-2">
+                          {filteredDua.map((dua) => (
+                            <li
+                              className="cursor-pointer text-sm py-2  "
+                              key={dua.id}
+                              onClick={() => getFilteredDuaByName(dua.id)}
+                            >
+                              <div className="flex items-start">
+                                <IoIosArrowForward className="relative text-[#1FA45B] text-lg " />
+                                {dua.dua_name_en}
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </li>
                   ))}
                 </ul>

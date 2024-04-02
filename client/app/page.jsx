@@ -10,6 +10,7 @@ export default function Home() {
   const [subCat, setSubCat] = useState([]);
   const [filteredSubCat, setFilteredSubCat] = useState([]);
   const [openCategory, setOpenCategory] = useState(null);
+  const [openDua, setOpenDua] = useState(null);
   const [filteredDua, setFilteredDua] = useState([]);
   const [isCopied, setIsCopied] = useState(false);
 
@@ -94,15 +95,30 @@ export default function Home() {
   };
 
   const getFilteredSubCat = (SubCatId) => {
-    setFilteredDua([]);
+    flushSync(() => setFilteredDua([]));
+
+    // if (openDua === SubCatId) {
+    //   setOpenCategory(null);
+    // } else {
+    //   setOpenCategory(SubCatId);
+    // }
 
     flushSync(() =>
       setFilteredDua(() => {
         return duas.filter((dua) => dua.subcat_id === SubCatId);
       })
     );
+    setOpenDua(!openDua);
   };
-  console.log(duas);
+
+  const getFilteredDuaByName = (duaId) => {
+    flushSync(() => setFilteredDua([]));
+    flushSync(() =>
+      setFilteredDua(() => {
+        return duas.filter((dua) => dua.id === duaId);
+      })
+    );
+  };
 
   return (
     <>
@@ -113,6 +129,9 @@ export default function Home() {
           categories={categories}
           isCategoryOpen={isCategoryOpen}
           getFilteredSubCat={getFilteredSubCat}
+          filteredDua={filteredDua}
+          openDua={openDua}
+          getFilteredDuaByName={getFilteredDuaByName}
         />
 
         <Duas

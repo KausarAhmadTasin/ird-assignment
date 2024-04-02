@@ -5,7 +5,7 @@ import { BiSolidDownArrow } from "react-icons/bi";
 
 const NavTop = () => {
   return (
-    <div className="flex justify-between gap-x-96 items-center max-h-14 mt-2 ml-6 mb-4">
+    <div className="flex justify-between gap-x-96 items-center max-h-14 mt-2 ml-4 mb-4">
       <p className="text-2xl font-poppins font-semibold text-[#393939]">
         Dua Page
       </p>
