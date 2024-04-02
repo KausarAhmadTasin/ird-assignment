@@ -30,7 +30,7 @@ const Settings = () => {
         <p>Font Settings</p>
       </div>
 
-      <div className="flex border-l-4 h-14  border-green-500 items-center gap-3 pt-4 font-normal text-green-600 text-base bg-gray-100 rounded p-3">
+      <div className="flex border-l-4 h-14  border-green-500 items-center gap-3 pt-4 font-medium text-[#1FA45B] text-base bg-gray-100 rounded p-3">
         <div className="flex items-center justify-center bg-gray-200 text-xl rounded-full w-8 h-8 ">
           <MdOutlineWidgets />
         </div>

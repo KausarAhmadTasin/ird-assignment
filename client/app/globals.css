@@ -5,8 +5,90 @@
 /* Inter Font */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
+@font-face {
+  font-family: "me_quran";
+  src: url("https://icikiwir.github.io/test/me_quran.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: "Inter", sans-serif;
+}
+
+.dua-arabic {
+  font-family: "Noto Naskh Arabic", serif;
+}
+
+.font-me-quran {
+  font-family: "me_quran";
+}
+
+.line-height-72 {
+  line-height: 72px;
+}
+
+.custom-audio-player {
+  display: none;
+}
+
+.custom-audio-player-container {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.custom-audio-player-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1fa45b;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.custom-audio-player-button-icon {
+  color: #fff;
+  font-size: 24px;
+}
+
+.hidden {
+  position: absolute;
+  left: -9999px;
+}
+
+.green-dot {
+  list-style-type: none;
+  position: relative;
+  padding-left: 20px;
+}
+.green-dot:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 8px;
+  height: 8px;
+  background-color: #4caf50;
+  border-radius: 50%;
+}
+.green-list {
+  padding-left: 20px;
+  position: relative;
+}
+.green-list:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 23.47px;
+  width: 0;
+  border-left: 1px dashed #4caf50;
 }
 
 /* :root {

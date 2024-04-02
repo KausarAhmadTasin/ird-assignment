@@ -9,7 +9,7 @@ import { BiSolidDonateHeart } from "react-icons/bi";
 
 const NavAside = () => {
   return (
-    <div className="w-[6.25rem] flex items-center justify-between flex-col text-2xl ml-6 my-4  h-[56.5rem] rounded-3xl pb-8 pt-8 bg-white">
+    <div className="w-[6.25rem] flex items-center justify-between flex-col text-2xl ml-3 my-4  h-[56.5rem] rounded-3xl pb-8 pt-8 bg-white">
       <div>
         {" "}
         <Image

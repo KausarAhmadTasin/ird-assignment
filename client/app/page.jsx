@@ -9,8 +9,9 @@ export default function Home() {
   const [categories, setCategories] = useState([]);
   const [subCat, setSubCat] = useState([]);
   const [filteredSubCat, setFilteredSubCat] = useState([]);
-  const [isOpenCat, setIsOpenCat] = useState(false);
+  const [openCategory, setOpenCategory] = useState(null);
   const [filteredDua, setFilteredDua] = useState([]);
+  const [isCopied, setIsCopied] = useState(false);
 
   useEffect(() => {
     fetchDua();
@@ -18,6 +19,7 @@ export default function Home() {
     fetchSubCatagory();
   }, []);
 
+  // Fetch functions
   const fetchDua = async () => {
     try {
       const res = await fetch("http://localhost:8800/api/dua");
@@ -29,21 +31,6 @@ export default function Home() {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
-  };
-
-  const getFilteredDua = (cat_id) => {
-    flushSync(() => setFilteredDua([]));
-
-    flushSync(() =>
-      setFilteredDua(() => {
-        return duas.filter((dua) => dua.cat_id === cat_id);
-      })
-    );
-    flushSync(() =>
-      setFilteredSubCat(() => {
-        return subCat.filter((sc) => sc.cat_id === cat_id);
-      })
-    );
   };
 
   const fetchCatagory = async () => {
@@ -71,6 +58,52 @@ export default function Home() {
       console.error("Error fetching data:", error);
     }
   };
+
+  const handleCopy = () => {
+    setIsCopied(true);
+
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+  };
+
+  const isCategoryOpen = (categoryId) => {
+    return openCategory === categoryId;
+  };
+
+  // Get Functions
+  const getFilteredDua = (cat_id) => {
+    flushSync(() => setFilteredDua([]));
+
+    flushSync(() =>
+      setFilteredDua(() => {
+        return duas.filter((dua) => dua.cat_id === cat_id);
+      })
+    );
+
+    if (openCategory === cat_id) {
+      setOpenCategory(null);
+    } else {
+      setOpenCategory(cat_id);
+    }
+    flushSync(() =>
+      setFilteredSubCat(() => {
+        return subCat.filter((sc) => sc.cat_id === cat_id);
+      })
+    );
+  };
+
+  const getFilteredSubCat = (SubCatId) => {
+    setFilteredDua([]);
+
+    flushSync(() =>
+      setFilteredDua(() => {
+        return duas.filter((dua) => dua.subcat_id === SubCatId);
+      })
+    );
+  };
+  console.log(duas);
+
   return (
     <>
       <div className="flex gap-2">
@@ -78,9 +111,18 @@ export default function Home() {
           filteredSubCat={filteredSubCat}
           getFilteredDua={getFilteredDua}
           categories={categories}
+          isCategoryOpen={isCategoryOpen}
+          getFilteredSubCat={getFilteredSubCat}
         />
 
-        <Duas duas={duas} filteredDua={filteredDua} />
+        <Duas
+          duas={duas}
+          filteredSubCat={filteredSubCat}
+          filteredDua={filteredDua}
+          isCopied={isCopied}
+          handleCopy={handleCopy}
+          openCategory={openCategory}
+        />
       </div>
     </>
   );
