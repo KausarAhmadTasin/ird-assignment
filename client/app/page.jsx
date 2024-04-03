@@ -13,6 +13,9 @@ export default function Home() {
   const [openDua, setOpenDua] = useState(null);
   const [filteredDua, setFilteredDua] = useState([]);
   const [isCopied, setIsCopied] = useState(false);
+  const [duaList, setDuaList] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredCategories, setFilteredCategories] = useState([]);
 
   useEffect(() => {
     fetchDua();
@@ -104,7 +107,7 @@ export default function Home() {
     // }
 
     flushSync(() =>
-      setFilteredDua(() => {
+      setDuaList(() => {
         return duas.filter((dua) => dua.subcat_id === SubCatId);
       })
     );
@@ -120,6 +123,19 @@ export default function Home() {
     );
   };
 
+  // Search Quary
+
+  const handleSearch = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    // Filter categories based on search query
+    const filtered = categories.filter((category) =>
+      category.cat_name_en.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredCategories(filtered);
+  };
+
   return (
     <>
       <div className="flex gap-2">
@@ -131,7 +147,11 @@ export default function Home() {
           getFilteredSubCat={getFilteredSubCat}
           filteredDua={filteredDua}
           openDua={openDua}
+          duaList={duaList}
           getFilteredDuaByName={getFilteredDuaByName}
+          searchQuery={searchQuery}
+          handleSearch={handleSearch}
+          filteredCategories={filteredCategories}
         />
 
         <Duas
