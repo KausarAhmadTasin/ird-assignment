@@ -19,8 +19,8 @@ export default function Categories({
   const [openSubCatId, setOpenSubCatId] = useState(null);
 
   return (
-    <div className="bg-white w-80 ml-3 pt-0 rounded-2xl overflow-auto h-[35.5rem]">
-      <p className="bg-[#1FA45B] text-white text-center font-semibold p-3 text-m rounded-t-lg sticky top-0 w-76 z-10">
+    <div className="bg-white w-[19rem] lg:w-80 ml-3 pt-0 rounded-2xl overflow-auto h-[35rem] lg:h-[35.5rem]">
+      <p className="bg-[#1FA45B] text-white text-center font-semibold p-3 text-m rounded-t-lg sticky sm:h-16 top-0 w-76 z-10">
         Categories
       </p>
       <div>
@@ -29,7 +29,7 @@ export default function Categories({
           placeholder={`Search Categories`}
           value={searchQuery}
           onChange={handleSearch}
-          className="border border-gray-300 rounded-md py-2 px-3 pl-9 lg:w-[17rem]  outline-[#1FA45B] mt-4 mx-4"
+          className="border border-gray-300 rounded-md py-2 px-3 pl-9 w-[17rem] outline-[#1FA45B] mt-4 mx-4"
         />
         <IoSearchSharp className="text-2xl text-gray-400 relative bottom-[34px] left-6" />
       </div>
@@ -96,7 +96,12 @@ export default function Categories({
                           <ul className="pt-2">
                             {duaList.map((dua) => (
                               <li
-                                className="cursor-pointer text-sm py-2"
+                                className={`cursor-pointer text-sm py-2 ${
+                                  filteredDua.length === 1 &&
+                                  filteredDua[0].id === dua.id
+                                    ? "text-[#1FA45B] font-semibold"
+                                    : "cursor-pointer"
+                                }`}
                                 key={dua.id}
                                 onClick={() => getFilteredDuaByName(dua.id)}
                               >
@@ -177,12 +182,20 @@ export default function Categories({
                             <ul className="pt-2">
                               {duaList.map((dua) => (
                                 <li
-                                  className="cursor-pointer text-sm py-2"
+                                  className={`cursor-pointer text-sm py-2 ${
+                                    filteredDua.length === 1 &&
+                                    filteredDua[0].id === dua.id
+                                      ? "text-[#1FA45B] font-semibold"
+                                      : "cursor-pointer"
+                                  }`}
                                   key={dua.id}
                                   onClick={() => getFilteredDuaByName(dua.id)}
                                 >
                                   <div className="flex items-center">
-                                    <IoIosArrowForward className="text-[#1FA45B] text-lg mr-2" />
+                                    <IoIosArrowForward
+                                      className={`text-[#1FA45B] text-lg mr-2
+                                        `}
+                                    />
                                     {dua.dua_name_en}
                                   </div>
                                 </li>

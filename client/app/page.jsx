@@ -138,7 +138,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex gap-2">
+      <div className="flex lg:flex-row flex-col gap-2">
         <Catagories
           filteredSubCat={filteredSubCat}
           getFilteredDua={getFilteredDua}

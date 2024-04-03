@@ -26,7 +26,7 @@ export default function RootLayout({ children, duas }) {
             <NavAside />
             <div className="mt-2">
               <NavTop />
-              <div className="flex justify-between">
+              <div className="lg:flex justify-between">
                 {" "}
                 {children}
                 <Settings />

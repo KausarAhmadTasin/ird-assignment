@@ -9,7 +9,7 @@ import { BiSolidDonateHeart } from "react-icons/bi";
 
 const NavAside = () => {
   return (
-    <div className="w-[6.25rem] flex items-center justify-between flex-col text-2xl ml-3 my-4  h-[56.5rem] rounded-3xl pb-8 pt-8 bg-white">
+    <div className="lg:w-[6.25rem] flex items-center justify-between flex-col text-2xl ml-3 lg:my-4 my-[80px] h-[35rem] lg:h-[56.5rem] rounded-3xl pb-8 pt-8 bg-white">
       <div>
         {" "}
         <Image
@@ -17,37 +17,38 @@ const NavAside = () => {
           alt=""
           width={65}
           height={65}
+          className="lg:w-16 w-9"
         />
       </div>
-      <div className="flex flex-col gap-y-9   text-[#868686]">
-        <div className="bg-[#E8F0F5] rounded-full w-10 h-10 text-xl flex items-center justify-center">
+      <div className="flex flex-col gap-y-5 lg:gap-y-9   text-[#868686]">
+        <div className="bg-[#E8F0F5] rounded-full lg:w-10 w-7 h-7 lg:h-10 text-lg lg:text-xl flex items-center justify-center">
           {" "}
           <IoHome />
         </div>
-        <div className="bg-[#E8F0F5] rounded-full w-10 h-10 text-xl flex items-center justify-center">
+        <div className="bg-[#E8F0F5] rounded-full lg:w-10 w-7 h-7 lg:h-10 text-lg lg:text-xl flex items-center justify-center">
           <MdOutlineWidgets />
         </div>
-        <div className="bg-[#E8F0F5] rounded-full w-10 h-10 text-xl flex items-center justify-center">
+        <div className="bg-[#E8F0F5] rounded-full lg:w-10 w-7 h-7 lg:h-10 text-lg lg:text-xl flex items-center justify-center">
           {" "}
           <IoBulbOutline />
         </div>
-        <div className="bg-[#E8F0F5] rounded-full w-10 h-10 text-xl flex items-center justify-center">
+        <div className="bg-[#E8F0F5] rounded-full lg:w-10 w-7 h-7 lg:h-10 text-lg lg:text-xl flex items-center justify-center">
           {" "}
           <PiBookmarkSimple />
         </div>
-        <div className="bg-[#E8F0F5] rounded-full w-10 h-10 text-xl flex items-center justify-center">
+        <div className="bg-[#E8F0F5] rounded-full lg:w-10 w-7 h-7 lg:h-10 text-lg lg:text-xl flex items-center justify-center">
           <TbMedicineSyrup />
         </div>
-        <div className="bg-[#E8F0F5] rounded-full w-10 h-10 text-xl flex items-center justify-center">
+        <div className="bg-[#E8F0F5] rounded-full lg:w-10 w-7 h-7 lg:h-10 text-lg lg:text-xl flex items-center justify-center">
           {" "}
           <IoChatbubblesOutline />
         </div>
-        <div className="bg-[#E8F0F5] rounded-full w-10 h-10 text-xl flex items-center justify-center">
+        <div className="bg-[#E8F0F5] rounded-full lg:w-10 w-7 h-7 lg:h-10 text-lg lg:text-xl flex items-center justify-center">
           {" "}
           <IoMdBook />
         </div>
       </div>
-      <div className="bg-[#1FA45B] w-14 text-white p-4 rounded-lg text-2xl">
+      <div className="bg-[#1FA45B] lg:w-14 w-10 m-1 lg:h-14 h-10 text-white p-4 rounded-lg text-base lg:text-2xl">
         <BiSolidDonateHeart />
       </div>
     </div>

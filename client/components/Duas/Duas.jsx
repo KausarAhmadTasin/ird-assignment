@@ -13,17 +13,7 @@ export default function Duas({
   filteredSubCat,
 }) {
   return (
-    <div className="mx-2  w-[38rem] overflow-auto h-[52.8rem] text-[#393939]">
-      {/* Sub Category Title
-      <div className="flex items-center gap-2 mb-3">
-        <CiCircleCheck className="font-bold text-2xl text-[#1FA45B]" />
-        <p>
-          {
-            filteredSubCat.find((subCat) => subCat.subcat_id === duas.subcat_id)
-              ?.subcat_name_en
-          }
-        </p>
-      </div> */}
+    <div className="mx-2 w-[23rem] relative lg:right-0 right-14 m-3 lg:m-0 lg:top-0  lg:w-[38rem] lg:overflow-auto lg:h-[52.8rem] text-[#393939]">
       <ul>
         {filteredDua?.map((dua) => (
           <li className="mb-4 bg-white p-5 rounded-2xl mr-0 width" key={dua.id}>
